@@ -5,7 +5,7 @@
 <div class="jumbotron">
     <h1>Login</h1>
 	<form class="well" action="~/Home/Login" method="post">
-
+		@Html.AntiForgeryToken()
 		<label>Username</label>
 		<input class="form-control" name="username" type="text" />
 		<br /><br />

@@ -12,12 +12,12 @@ namespace Session_Cookies.Controllers
 		{
 			if (Request.Cookies["KeepMeLoggedIn"] != null)
 			{
-				
-				ViewBag.Message = "You're already logged in";
+				RedirectToAction("About");	
 			}
 			return View();
 		}
 
+		[ValidateAntiForgeryToken]
 		public ActionResult About()
 		{
 			ViewBag.Message = "Your application description page.";
@@ -48,10 +48,7 @@ namespace Session_Cookies.Controllers
 					KeepMeLoggedInCookie.Expires = DateTime.Now.AddDays(14);
 					Response.Cookies.Add(KeepMeLoggedInCookie);
 				}
-				else
-				{
-					Session.Add("loggedIn", true);
-				}
+				Session.Add("username", username);
 			}
 			else
 			{
